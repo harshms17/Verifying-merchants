@@ -1,52 +1,36 @@
-# 🌐 Role-Based User Management Web App
+# 🧑‍💼 Merchant Management App
 
-A full-stack web application that enables seamless user registration, region-based user management by admins, and global oversight by super admins. This platform ensures secure onboarding, hierarchical control, and modular access—perfect for organizations needing a controlled user flow and approval pipeline.
+A full-stack, role-based web application that enables Super Admins to seamlessly manage Merchants and Regional Admins. This project provides intuitive UI and powerful backend controls to approve, block, and create accounts with regional access control.
 
 ---
 
 ## 🚀 Features
 
-- 🔐 **User Registration & Login**: Secure signup/login using JWT authentication.
-- 🧐 **Approval-Based Access**: New users are kept in a "pending" state until approved.
-- 🛂 **Admin Role**: Admins can view and manage users in their assigned region.
-- 🧠 **Super Admin Role**: Has full access to monitor and manage all users, regions, and admins.
-- 📍 **Region-Based Segmentation**: Each user and admin is associated with a specific region.
-- ✨ **Dynamic Role Elevation**: Approved users can be promoted to admins by a super admin.
-- 🛡️ **Role-Based Authorization Middleware**: Ensures only permitted users can access protected resources.
-- 📊 **User Status Management**: Admins and super admins can update user statuses (e.g., approved, suspended).
-- ⚙️ **Robust API Design**: RESTful APIs built with Next.js for scalable backend logic.
-- 💬 **Real-time Feedback**: Clean UI with loading indicators and error handling.
-- 🧪 **Type-safe APIs with Zod & TypeScript**
+### ✅ For Super Admins
+- 🔎 View and manage all registered merchants
+  - Categorized by `Verified` & `Unverified`
+  - Toggle verification (Approve / Block merchants)
+- 👥 View and manage all Admin accounts
+  - Add new Admins via a simple form
+  - Fire existing admins
+
+### 🧰 Tech Stack
+
+| Frontend           | Backend   | Database | Auth                 | Misc             |
+|--------------------|-----------|----------|----------------------|------------------|
+| Next.js (App Router) | Node.js   | MongoDB  | Cookie-based (with JWT) | TailwindCSS      |
+| React Hooks        | API Routes| Mongoose ODM | js-cookie          | Fully responsive|
 
 ---
 
-## 🧑‍💻 Tech Stack
+## 🧑‍💻 Project Structure
 
-| Layer          | Tech Used                                |
-|----------------|--------------------------------------------|
-| Frontend       | React, Tailwind CSS, TypeScript            |
-| Backend        | Next.js App Router, API Routes             |
-| Database       | MongoDB (with Mongoose ODM)                |
-| Authentication | JWT, HttpOnly Cookies                      |
-| Validation     | Zod                                        |
-| Hosting        | Vercel (Frontend & API) + MongoDB Atlas    |
+📁 src/  
+┣ 📁 models/ → Mongoose Schemas (Merchant, Admin)  
+┣ 📁 app/  
+┃ ┣ 📁 api/ → Backend API routes  
+┃ ┗ 📁 dashboard/ → Super Admin dashboard (UI + logic)  
+┣ 📁 components/ → Reusable UI components (WIP)  
+┗ 📁 utils/ → Utility functions & middlewares
 
 ---
-
-## 😺 Roles Overview
-
-### 👤 User
-- Registers and waits for approval.
-- Views personal dashboard once approved.
-
-### 🧑‍💼 Admin
-- Assigned a region.
-- Views and manages users in their region.
-- Updates user statuses within their region.
-
-### 👑 Super Admin
-- Full access to all data across all regions.
-- Promotes users to admins.
-- Manages both users and admins.
-
-
